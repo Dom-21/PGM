@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<math.h>
+#include<conio.h>
+int fac(int a);
+void main()
+{
+ float x,Q,sum=0;
+ int i,j,limit;
+ printf("\n Enter the value of x of sinx series : ");
+ scanf("%f",&x);
+ printf("\n Enter the limit upto which you want to expand the series : ");
+ scanf("%d",&limit);
+ Q=x;
+ x=x*(3.1415/180);
+ for(i=1,j=1;i<=limit;i++,j=j+2)
+ {
+ if(i%2!=0)
+ {
+ sum=sum+pow(x,j)/fac(j);
+ }
+ else
+ {
+ sum=sum-pow(x,j)/fac(j);
+ }
+ }
+ printf("\n Calculated value of sin(%f):%f",Q,sum);
+ printf("\n Computed value of sin(%f)using built in function is %f:",Q,sin(x));
+ getch();
+ }
+ int fac(int a){
+ int i, f=1;
+ for(i=1;i<=a;i++)
+ f=f*i;
+ return f;
+}
